@@ -1,0 +1,6 @@
+1. Selenium with Python — Selenium Python Bindings 2 ...
+   Link: https://selenium-python.readthedocs.io/
+
+1. Canva: um Kit de Criação Visual para todo mundo
+   Link: https://www.canva.com/pt_br/
+

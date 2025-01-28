@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exibir Imagem no Canvas</title>
+  <style>
+    canvas {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="480" height="360" id="telaCanvas" data="https://cameras.cetsp.com.br/Imgs/CetWatermark.png"></canvas>
+  <script>
+    window.onload = function () {
+      // Obtém o canvas e o contexto
+      const canvas = document.getElementById('telaCanvas');
+      const ctx = canvas.getContext('2d');
+      
+      // Obtém o URL da imagem do atributo data
+      const imageUrl = canvas.getAttribute('data');
+      
+      // Cria uma nova imagem
+      const img = new Image();
+      
+      // Define a função de carregamento da imagem
+      img.onload = function () {
+        // Desenha a imagem no canvas
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      };
+      
+      // Define o src da imagem
+      img.src = imageUrl;
+      
+      // Lida com erros no carregamento da imagem
+      img.onerror = function () {
+        console.error('Falha ao carregar a imagem:', imageUrl);
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "red";
+        ctx.fillText("Erro ao carregar imagem", 10, canvas.height / 2);
+      };
+    };
+  </script>
+</body>
+</html>
